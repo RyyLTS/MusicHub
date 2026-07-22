@@ -1,0 +1,654 @@
+/*Geral*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background-color: #1E1E1E;
+    overflow: hidden;
+    color: white;
+}
+p{
+    max-width: 800px;
+    margin: 5px;
+    font-size: 18px;
+}
+h1{
+    margin: 10px;
+}
+ul{
+    list-style: none;
+}
+hr{
+    width: 100%;
+    margin: 0px 0px 50px 0px;
+    border: none;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        #05E6F5,
+        #6956F6,
+        #D21BF8
+    );
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+.conteudo{
+    flex: 1;
+    padding: 30px;
+    overflow: hidden;
+    min-width: 0;
+}
+.centralizado{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.botoes{
+    width: 100%;
+    flex-direction: row;
+}
+.botao{
+    width: 200px;
+    height: 80px;
+    margin: 50px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.botaoP{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+
+    margin-left: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+        background: linear-gradient(
+        90deg,
+        #05E6F5,
+        #6956F6,
+        #D21BF8
+    );
+}
+.botaoP:hover{
+    cursor: pointer;
+    border: white solid 4px;
+}
+.salvar{
+    background: #05E6F5;
+    color: black;
+}
+.cancelar{
+    background: #D21BF8;
+    color: white;
+}
+
+input[type="radio"]{
+    appearance: none;
+
+    width: 20px;
+    height: 20px;
+
+    border: 2px solid #6956F6;
+    border-radius: 50%;
+
+    cursor: pointer;
+    transition: .3s;
+}
+
+input[type="radio"]:checked{
+    background: linear-gradient(135deg, #05E6F5, #D21BF8);
+    border: #05E6F5 solid 1px;
+}
+input[type="radio"]:checked::before{
+    content: "";
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+
+    margin: 4px;
+
+    border-radius: 50%;
+    background: white;
+}
+input[type="checkbox"]{
+    appearance: none;
+
+    width: 20px;
+    height: 20px;
+
+    border: 2px solid #6956F6;
+    border-radius: 5px;
+
+    cursor: pointer;
+    transition: .3s;
+}
+input[type="checkbox"]:checked{
+    background: linear-gradient(135deg, #05E6F5, #D21BF8);
+    border: #05E6F5 solid 1px;
+}
+input[type="checkbox"]:checked::before{
+    content: "✔";
+
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+.linha{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    margin: 5px;
+}
+.direita{
+    display: flex;
+    width: 50%;
+    justify-content: right;
+}
+.esquerda{
+    display: flex;
+    width: 50%;
+    justify-content: left;
+}
+
+::-webkit-scrollbar{
+    height: 10px;
+}
+::-webkit-scrollbar-track{
+    background: #181f2b;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(90deg, #05E6F5, #D21BF8);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(90deg, #D21BF8, #05E6F5);
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*Menu lateral*/
+.menu{
+    width:250px;
+    background:#181f2b;
+    padding:20px;
+    margin-right: none;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.menu li{
+    margin:15px 0;
+}
+
+.perfil{
+    text-indent: -999px;
+    width: 135px;
+    height: 125px;
+    background: url(imagens/perfil2.png) center no-repeat;
+    background-size: 300px;
+    border-radius: 100%;
+    display: block;
+    margin: 20px auto;
+}
+
+.perfil:hover{
+    cursor: pointer;
+    background-image: url(imagens/perfil.png);
+    background-size: 100%;
+}
+
+.areaSite{
+    color:white;
+    text-decoration:none;
+    display:block;
+    padding:10px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.areaSite:hover{
+        background: linear-gradient(
+        90deg,
+        #05E6F5,
+        #6956F6,
+        #D21BF8
+    );
+}
+
+.logout{
+    text-decoration: none;
+    margin-top: auto;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #D21BF8;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+}
+.selecionado{
+    background: linear-gradient(
+        90deg,
+        #05E6F5,
+        #6956F6,
+        #D21BF8
+    );
+}
+
+/*Home*/
+#pesquisa input{
+    width: 100%;
+    max-width: 500px;
+    height: 45px;
+    padding: 0 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: #181f2b;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 15px;
+}
+.estilos-container{
+    width: 100%;
+
+    overflow-y: hidden;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.estilos-container::-webkit-scrollbar{
+    height: 10px;
+}
+
+.estilos-container::-webkit-scrollbar-track{
+    background: #181f2b;
+    border-radius: 10px;
+}
+
+.estilos-container::-webkit-scrollbar-thumb{
+    background: linear-gradient(90deg, #05E6F5, #D21BF8);
+    border-radius: 10px;
+}
+
+.estilos-container::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(90deg, #D21BF8, #05E6F5);
+}
+
+.lista-estilos{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: max-content;
+}
+
+.lista-estilos li{
+    min-width: 200px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #05E6F5, #D21BF8);
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.lista-estilos li:hover{
+    background: linear-gradient(135deg, #D21BF8, #05E6F5);
+    cursor: pointer;
+}
+
+.lista-musicas{
+    display: flex;
+    gap: 25px;
+    width: 100%;
+    padding: 0;
+    padding-bottom: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+
+.card-musica{
+    width: 220px;
+    background-color: #181f2b;
+    border-radius: 15px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+
+    transition: .3s;
+}
+
+.card-musica:hover{
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.lista-musicas ul li a:hover{
+    background: linear-gradient(
+        90deg,
+        #05E6F5,
+        #6956F6,
+        #D21BF8
+    );
+} 
+
+
+
+/*Perfil*/
+.botaoImagemPerfil{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+
+    display: block;
+    cursor: pointer;
+
+    background: url("imagens/perfil.png") center no-repeat;
+    background-size: cover;
+    border-radius: 100%;
+
+    transition: .3s;
+}
+
+.capaPerfil{
+    border-radius: 100%;
+}
+
+.areaCapaPerfil{
+    position: relative;
+
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+
+    margin: 25px 0;
+
+    overflow: hidden;
+}
+.areaCapaPerfil.temImagem .botaoImagemPerfil{
+    background: url("imagens/+.png") center no-repeat;
+    background-size: 100%;
+    opacity: 0;
+}
+.areaCapaPerfil.temImagem:hover .botaoImagemPerfil{
+    opacity: 1;
+
+    background-color: rgba(0,0,0,.55);
+}
+.biografia textarea{
+    width: 700px;
+    height: 300px;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    color: white;
+    border: white 1px solid;
+}
+.nome{
+    color: white;
+    border: none;
+    margin-bottom: 30px;
+    background-color: transparent;
+    font-size: 25px;
+    text-align: center;
+}
+.carteira{
+    margin: 20px;
+    background: url(imagens/carteira.png) no-repeat center;
+    background-size: 100%;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: #181f2b;
+}
+.carteira:hover{
+    border: white 2px solid;
+}
+
+/*Minhas músicas*/
+.tipos{
+    margin-top: 25px;
+}
+
+/*Criar / editar música*/
+.letra{
+    width: 50%;
+    height: 550px;
+    min-width: 600px;
+    overflow-y: auto;
+}
+.letra textarea{
+    width: 100%;
+    height: 100%;
+    background-color: #181f2b;
+    border: none;
+    font-size: 18px;
+    color: white;
+    border: #6956F6 1px solid;
+}
+.verticalScroll::-webkit-scrollbar-thumb{
+    background: linear-gradient(135deg, #05E6F5, #D21BF8);
+    border-radius: 10px;
+}
+.verticalScroll::-webkit-scrollbar-thumb:hover{
+    background: linear-gradient(135deg, #D21BF8, #05E6F5);
+}
+.area-musica{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.bt-acoes{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    min-width: 100px;
+}
+label{
+    margin-bottom: 10px;
+    color: white;
+}
+.bt-acoes input{
+    background-color: #181f2b;
+    color: white;
+    border: none;
+    outline: none;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+.radio-txt{
+    display: flex;
+    flex-direction: row;
+}
+.publicar{
+    background-color: #6956F6;
+}
+.excluir{
+    background-color: #CC0000;
+}
+.botaoImagem{
+    height: 100%;
+    position: absolute;
+    inset: 0;
+
+    display: block;
+    cursor: pointer;
+
+    background: url("imagens/+.png") center no-repeat;
+    background-size: cover;
+    background-color: #181f2b;
+    border: 2px solid #6956F6;
+    border-radius: 20%;
+
+    transition: .3s;
+}
+.botaoImagem:hover{
+    cursor: pointer;
+}
+
+.areaCapa{
+    position: relative;
+
+    width: 90%;
+    max-width: 350px;
+    min-width: 250px;
+    height: 250px;
+
+    margin: 25px 0;
+
+    overflow: hidden;
+}
+.areaCapa.temImagem .botaoImagem{
+    opacity: 0;
+}
+.areaCapa.temImagem:hover .botaoImagem{
+    opacity: 1;
+
+    background-color: rgba(0,0,0,.55);
+}
+
+.bt-gravar{
+    background: url(imagens/microfone.png) no-repeat center;
+    background-size: 300%;
+}
+.bt-gravar.parando{
+    background-image: url("imagens/quadrado.png");
+    background-size: 180%;
+}
+
+#previewCapa{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: none;
+}
+.titulo{
+    color: white;
+    border: none;
+    border-bottom: white solid 1px;
+    background-color: transparent;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+/*Metodos de Pagamento*/
+.listaCartoes{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 70%;
+    margin-top: 10px;
+}
+.cartao{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: #05E6F5 solid 1px;
+    background-color: #181f2b;
+    min-width: 400px;
+    max-width: 700px;
+}
+.cartao:hover .apagar{
+    opacity: 1;
+}
+.cartaoImg{
+    width: 100px;
+    min-height: 100%;
+    margin-right: 5px;
+    border: #05E6F5 solid 1px;
+}
+.listaCartoes a {
+    text-decoration: none;
+    color: white;
+}
+.listaCartoes li:hover{
+    background-color: #181f4b;
+}
+
+.apagar{
+    display: flex;
+    width: 20%;
+    height: 100px;
+    background: url(imagens/lixeira.png) center no-repeat;
+    background-color: #CC0000;
+    background-size: 50%;
+    padding: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s;
+}
+.divCartao{
+    width: 80%;
+}
+#subtitulo{
+    width: 25%;
+}
+
+/*Novo pagamento*/
+.conteudo-novoPag{
+    margin-top: 100px;
+    background-color: #181f2b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    width: 25%;;
+    border-radius: 10%;
+    padding: 10px;
+}
+.lbl-input{
+    display: flex;
+    width: 90%;
+    margin: 5px;
+    align-items: center;
+}
+.input-novoMetodo{
+    height: 30px;
+    width: 90%;
+    background-color: #1E1E1E;
+    color: white;
+    border: none;
+    margin: 5px;
+}
+.tituloNovoMetodo{
+    margin: 20px;
+}

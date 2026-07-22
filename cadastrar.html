@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicHub - cadastro</title>
+    <link rel = "stylesheet" href="login.css">
+</head>
+<body>
+    <div id="topo"></div>
+    <div id = "container">
+        <div id="principalG">
+            <h2>Cadastre-se</h2>   
+            <hr>
+                <form id="formCadastro" class="conteudoG"> 
+                    <div class="coluna">  
+                        <label>
+                            Nome:
+                            <input type="text" name="nome" id="email" placeholder="nome:" required> 
+                        </label>
+                    
+                        <label>
+                            Email:
+                            <input type="text" name="email" id="email" placeholder="E-mail:" required>
+                        </label>
+
+                        <label>
+                            CPF:
+                            <input type="text" name="CPF" id="CPF" placeholder="CPF:" required>
+                        </label>
+
+                        <label>
+                            N° Telefone:
+                            <input type="telefone" name="telefone" id="telefone" placeholder="N° Telefone" required>
+                        </label>
+                    </div>
+
+                    <div class="coluna">
+                        <label>
+                            Senha:
+                            <input type="password" name="senha" id="senha" placeholder="Senha:" required>
+                        </label>
+                        
+                        <label>
+                            Confirmar senha:
+                            <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Confirmar senha:" required>
+                        </label>  
+                    </div>
+                </form>
+                <button class="submit" type="submit" form="formCadastro">Criar conta</a>        
+        </div>
+    </div>
+    <footer id="rodape"></footer>
+
+    <script> <!--Salvar cadastro-->
+        const botao = document.getElementById("btnSalvar");
+        const formulario = document.getElementById("formCadastro");
+
+        botao.addEventListener("click", () => {
+            formulario.requestSubmit();
+        });
+    </script>
+</body>
+</html>

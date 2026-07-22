@@ -1,30 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel = "stylesheet" href="Style.css">
+    <title>MusicHub - login</title>
+    <link rel = "stylesheet" href="login.css">
 </head>
 <body>
     <div id="topo"></div>
     <div id = "container">
-        
         <div id="principal">
-            <div class="titulo">
-                <h2 class="login">Faça login</h2>
-            </div>
+            <h2>Faça login</h2>   
+            <hr>
             <div class="conteudo"> 
-                <label>Email:</label>
-                <input type="text" name="email" id="email" placeholder="E-mail:">
-                <label>Senha:</label>
-                <input type="password" name="senha" id="senha" placeholder="Senha:">
+                <form action="/login" method="post" id="formLogin">
+                    <label>Email:</label>
+                    <input type="text" name="email" id="email" placeholder="E-mail:" required>
+                    <label>Senha:</label>
+                    <input type="password" name="senha" id="senha" placeholder="Senha:" required>
+                </form>
+                <br>
+                    <a class="link" href="cadastrar.html"> Cadastre-se</a>
+                    <a class="link" href="redefinirSenha.html"> Esqueci a senha</a>       
             </div>
-            <div class="enviar">
-                <input class="submit" type="submit" value="Entrar">
-            </div>
+            <button class="submit" type="submit" form="formLogin">Entrar</button>
         </div>
     </div>
-    <div id="rodape"></div>
+    <footer id="rodape"></footer>
+    <script> <!--Validação de Login-->
+        const resposta = await fetch("/login", {
+        method: "POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(dados)
+        });
+
+        if(resposta.ok){
+            window.location.href = "home.html";
+        }else{
+            alert("E-mail ou senha inválidos.");
+        }
+    </script>
 </body>
 </html>

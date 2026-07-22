@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicHub - métodos de pagamento</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>  
+    <div class="container">
+        <div id="menu-lateral"></div> <!--Menu lateral-->
+
+        <main class="conteudo">
+        <h1>Métodos de pagamento</h1>
+        <hr>   
+            <div class="centralizado">
+                <div class="linha" id="subtitulo">
+                    <div class="esquerda">
+                        <h2>Cartões salvos</h2>
+                    </div>  
+                    <div class="direita">
+                        <a href="novoMetodo.html" class="botaoP"> + </a>
+                    </div>
+                </div>
+                <ul class="listaCartoes">
+                    <a href="">
+                        <li class="cartao">
+                            <img class="cartaoImg" src="imagens/cartao.png">
+                            <div class="divCartao">
+                                <p>[Débito / Crédito]</p>
+                                <p>[Nome do titular]</p>
+                                <p>[bandeira] com final [4 dígitos finais]</p>
+                            </div>
+                            <button class="apagar direita" type="button"> </button>
+                        </li>
+                                                <li class="cartao">
+                            <img class="cartaoImg" src="imagens/cartao.png">
+                            <div class="divCartao">
+                                <p>[Débito / Crédito]</p>
+                                <p>[Nome do titular]</p>
+                                <p>[bandeira] com final [4 dígitos finais]</p>
+                            </div>
+                            <button class="apagar direita" type="button"> </button>
+                        </li>
+                                                <li class="cartao">
+                            <img class="cartaoImg" src="imagens/cartao.png">
+                            <div class="divCartao">
+                                <p>[Débito / Crédito]</p>
+                                <p>[Nome do titular]</p>
+                                <p>[bandeira] com final [4 dígitos finais]</p>
+                            </div>
+                            <button class="apagar direita" type="button"> </button>
+                        </li>
+                                                <li class="cartao">
+                            <img class="cartaoImg" src="imagens/cartao.png">
+                            <div class="divCartao">
+                                <p>[Débito / Crédito]</p>
+                                <p>[Nome do titular]</p>
+                                <p>[bandeira] com final [4 dígitos finais]</p>
+                            </div>
+                            <button class="apagar direita" type="button"> </button>
+                        </li>
+                                                <li class="cartao">
+                            <img class="cartaoImg" src="imagens/cartao.png">
+                            <div class="divCartao">
+                                <p>[Débito / Crédito]</p>
+                                <p>[Nome do titular]</p>
+                                <p>[bandeira] com final [4 dígitos finais]</p>
+                            </div>
+                            <button class="apagar direita" type="button"> </button>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script> <!--Puxa o menu lateral-->
+         fetch("menu.html")
+            .then(resposta => resposta.text())
+            .then(html => {
+                document.getElementById("menu-lateral").innerHTML = html;
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #1E1E1E;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    color: white;
+}
+
+hr{
+    width: 100%;
+    height: 2px;
+    border: none;
+    background: linear-gradient(90deg, #05E6F5, #6956F6, #D21BF8);
+    margin-bottom: 30px;
+}
+h2{
+    color: #05E6F5;
+    margin: 20px;
+}
+.link{
+    margin-top: 5px;
+    color: #D21BF8;
+    font-size: 14px;
+}
+.link:hover{
+    color: #6956F6;
+}
+#container{
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 80px;
+}
+#topo{
+    height: 150px;
+    background: url(imagens/logoG.png) no-repeat center;
+    background-color: #181f2b;
+    background-size: 500px;
+    clear: both;
+    margin-bottom: 50px;
+}
+#principal{
+    color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+    margin: auto;
+    background-color: #181f2b;
+    border-radius: 10%;
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    width: 70%;
+}
+
+.conteudo input{
+    height: 30px;
+    width: 100%;
+    background-color: #1E1E1E;
+    color: white;
+    border: none;
+    margin-bottom: 5px;
+}
+
+.submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background: linear-gradient(90deg, #D21BF8, #6956F6, #05E6F5);
+    color: white;
+    width: 200px;
+    height: 80px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border: none;
+    text-decoration: none;
+}
+.submit:hover{
+    background: linear-gradient(90deg,#05E6F5, #D21BF8, #6956F6);
+}
+
+#rodape{
+    background-color: #181f2b;
+    height: 400px;
+}
+
+/*Cadastro / Esqueci a senha*/
+#principalG{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    margin: auto;
+    background-color: #181f2b;
+    border-radius: 10%;
+    align-items: center;
+}
+.conteudoG{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+    gap: 20px;
+    justify-content: center;
+}
+.conteudoG label{
+    width: 100%;
+}
+.conteudoG input{
+    height: 30px;
+    width: 100%;
+    background-color: #1E1E1E;
+    color: white;
+    border: none;
+    margin-bottom: 5px;
+}
+.coluna{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.linha{
+    display: flex;
+    flex-direction: row;
+}
+#principalP{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+    margin: auto;
+    background-color: #181f2b;
+    border-radius: 10%;
+    align-items: center;
+}

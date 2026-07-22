@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicHub - nome </title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div id="menu-lateral"></div> <!--Menu lateral-->
+        <main class="conteudo">
+            
+        </main>
+    </div>
+
+
+    <script> <!--Puxa o menu lateral-->
+         fetch("menu.html")
+            .then(resposta => resposta.text())
+            .then(html => {
+                document.getElementById("menu-lateral").innerHTML = html;
+            });
+    </script>
+</body>
+</html>

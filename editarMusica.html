@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicHub - editar música</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="container">
+        <div id="menu-lateral"></div> <!--Menu lateral-->
+        <main class="conteudo">
+            <h1>Editar música</h1>
+            <hr>
+            <form id="formMusica">
+                <input type="text" class="titulo" placeholder="Título">
+                <br>
+                <div class="area-musica">
+                    <div class="letra verticalScroll"> <!-- Letra -->
+                        <textarea> </textarea>
+                    </div>
+                    <div class="bt-acoes"> <!-- Botões de ação -->
+                        <h2>Capa</h2>
+                        <div class="areaCapa">
+                            <input 
+                                type="file"
+                                id="imagemCapa"
+                                accept="image/*"
+                                hidden
+                            >  <!-- Botão imagem -->
+
+                            <img id="previewCapa" alt="Prévia da capa">
+
+                            <label for="imagemCapa" class="botaoImagem">
+                                
+                            </label>
+                        </div>
+
+                        <div class="botoes">
+                            <button class="botaoP bt-gravar" id="btnGravar"></button> <!-- Botão gravar -->
+                        </div>
+                        <div><!-- Botões de venda -->
+                            <label>
+                                <input type="checkbox" name="negociacao">
+                                Negociação de valor antes da compra
+                            </label>
+                            <br>
+                            <label>
+                                <input type="radio" name="genero" value="buscar parceria">
+                                Buscar parceria
+                            </label>
+                            <br>
+                            <div class="radio-txt">
+                                <label>
+                                    <input type="radio" name="genero" value="vender" id="outro">
+                                    Vender R$:
+                                </label>
+                                <input
+                                type="number"
+                                id="valorVenda"
+                                min="0"
+                                step="0.01"
+                                placeholder="0,00"       
+                                >
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </form>              
+            
+            <div class="centralizado botoes"> <!-- Botões de salvar,cancelar e publicar -->
+                <button type="submit" class="botao excluir">Excluir</button>
+                <button type="submit" class="botao cancelar">Cancelar</button>
+                <button type="submit" class="botao salvar">Salvar</button>
+                <button type="submit" class="botao publicar">Publicar</button>
+            </div>
+        </main>
+    </div>
+
+    <script> <!--Puxa o menu lateral-->
+         fetch("menu.html")
+            .then(resposta => resposta.text())
+            .then(html => {
+                document.getElementById("menu-lateral").innerHTML = html;
+            });
+    </script>
+    <script> <!--Configura o radio Buttom-->
+        const radios = document.querySelectorAll('input[name="genero"]');
+        const campoOutro = document.getElementById("valorVenda");
+
+        radios.forEach(radio => {
+            radio.addEventListener("change", () => {
+
+                if(document.getElementById("outro").checked){
+                    campoOutro.style.display = "block";
+                }else{
+                    campoOutro.style.display = "none";
+                    campoOutro.value = "";
+                }
+            });
+        });
+    </script>
+    <script> <!-- Configura a animação para o botão de gravar-->
+      const botao = document.getElementById("btnGravar");
+
+        botao.addEventListener("click", () => {
+        botao.classList.toggle("parando");
+    });
+    </script>
+    <script><!-- Configura a alteração da imagem de capa-->
+       const inputCapa = document.getElementById("imagemCapa");
+        const previewCapa = document.getElementById("previewCapa");
+        const areaCapa = document.querySelector(".areaCapa");
+
+        inputCapa.addEventListener("change", function(){
+
+            const arquivo = this.files[0];
+
+            if(!arquivo) return;
+
+            previewCapa.src = URL.createObjectURL(arquivo);
+            previewCapa.style.display = "block";
+
+            areaCapa.classList.add("temImagem");
+        });
+    </script>
+    <script>
+        const formulario = document.getElementById("formMusica");
+
+        formulario.addEventListener("submit", async function(event){
+
+            event.preventDefault();
+
+            const dados = new FormData(formulario);
+
+            const resposta = await fetch("/musicas", {
+                method: "POST",
+                body: dados
+            });
+
+            if(resposta.ok){
+                alert("Música cadastrada com sucesso!");
+                formulario.reset();
+            }else{
+                alert("Erro ao cadastrar a música.");
+            }
+        });
+    </script>
+</body>
+</html>

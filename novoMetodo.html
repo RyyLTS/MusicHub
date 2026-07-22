@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicHub - Adicionar cartão </title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div id="menu-lateral"></div> <!--Menu lateral-->
+        <main class="conteudo">
+            <h1>Adicionar cartão</h1>
+            <hr>
+            <div class="centralizado">
+                <div class="conteudo-novoPag">
+                    <h2 class="tituloNovoMetodo"> Dados do cartão</h2>
+                    <hr>
+                    <label class="lbl-input"> Nome do títular: </label>
+                    <input class="input-novoMetodo" type="text" id="NomeTitular" required>
+                    <label class="lbl-input"> Número: </label>
+                    <input class="input-novoMetodo" type="text" id="NumCartao" maxlength="19" placeholder="0000 0000 0000 0000" required>
+                    
+                    <div class="linha">
+                        <div class="esquerda">
+                            <label class="lbl-input" > 
+                                Vencimento: 
+                                <input class="input-novoMetodo" type="text" id="vencimento" placeholder="MM/AA" maxlength="5" required>
+                            </label>
+                        </div>   
+                        <div class="direita">
+                            <label class="lbl-input"> CVV: 
+                                <input class="input-novoMetodo" type="password" maxlength="4" id="CVV" required>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="botao salvar"> Confirmar</button>
+                </div>  
+            </div>
+        </main>
+    </div>
+
+    <script> <!--Puxa o menu lateral-->
+         fetch("menu.html")
+            .then(resposta => resposta.text())
+            .then(html => {
+                document.getElementById("menu-lateral").innerHTML = html;
+            });
+    </script>
+</body>
+</html>

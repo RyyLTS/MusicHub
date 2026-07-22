@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicHub - cadastro</title>
+    <link rel = "stylesheet" href="login.css">
+</head>
+<body>
+    <div id="topo"></div>
+    <div id = "container">
+        <div id="principalP">
+            <h2>Redefinir senha</h2>   
+            <hr>
+                <form id="formRecuperar" class="conteudoG"> 
+                    <label>
+                        Email:
+                        <input type="text" name="email" id="email" placeholder="E-mail:" required>
+                    </label>
+                </form>
+            <button class="submit" type="submit" form="formRecuperar">Enviar email</a>        
+        </div>
+    </div>
+    <footer id="rodape"></footer>
+        <script> <!--Envio de email de recuperação-->
+        const formulario = document.getElementById("formRecuperar");
+
+        formulario.addEventListener("submit", async function(event){
+
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+
+            try{
+
+                const resposta = await fetch("/recuperar-senha",{
+
+                    method: "POST",
+
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
+
+                    body: JSON.stringify({
+                        email: email
+                    })
+
+                });
+
+                const resultado = await resposta.json();
+
+                alert(resultado.mensagem);
+
+            }catch(erro){
+
+                alert("Erro ao enviar solicitação.");
+
+            }
+
+        });
+    </script>
+</body>
+</html>

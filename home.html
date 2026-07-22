@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicHub - Home</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="container">
+
+<div id="menu-lateral"></div> <!--Menu lateral-->
+
+    <main class="conteudo">
+        
+        <div id="pesquisa"> <!--Barra de pesquisa-->
+            <input
+                type="search"
+                placeholder="Pesquisar estilos musicais..."
+            >
+        </div>
+ 
+        <h1>Estilos musicais </h1> <!--Estilos musicais-->
+        <hr>
+        <div class="estilos-container">
+            <ul class="lista-estilos">
+                <li>Rock</li>
+                <li>Pop</li>
+                <li>Sertanejo</li>
+                <li>Funk</li>
+                <li>Rap</li>
+                <li>MPB</li>
+                <li>Pagode</li>
+                <li>Samba</li>
+                <li>Eletrônica</li>
+            </ul>
+        </div>
+
+        <h1>Em alta</h1> <!--Musicas-->
+        <hr>
+        <div class="musicas-container">
+    <ul class="lista-musicas">
+
+        <li class="card-musica">
+            <img src="imagens/capa1.jpg" alt="Capa da música">
+
+            <h3>The Shape You Left In Me</h3>
+
+            <p>Nox Ressonantia</p>
+        </li>
+
+        <li class="card-musica">
+            <img src="imagens/caap2.jpg" alt="Capa da música">
+
+            <h3>Doomed</h3>
+
+            <p>Marphra</p>
+        </li>
+
+        <li class="card-musica">
+            <img src="imagens/capa3.jpg" alt="Capa da música">
+
+            <h3>Fear of the dark</h3>
+
+            <p>Iron Maiden</p>
+        </li>
+
+        <li class="card-musica">
+            <img src="imagens/capa4.jpg" alt="Capa da música">
+
+            <h3>Psicosocial</h3>
+
+            <p>Slikpnot</p>
+        </li>
+
+        <li class="card-musica">
+            <img src="imagens/capa5.png" alt="Capa da música">
+
+            <h3>Bring me to life</h3>
+
+            <p>Evanescence</p>
+        </li>
+
+        <li class="card-musica">
+            <img src="imagens/capa6.jpg" alt="Capa da música">
+
+            <h3>Hail to the king</h3>
+
+            <p>Avenged Sevenfold</p>
+        </li>
+
+        <li class="card-musica">
+            <img src="imagens/capa7.jpg" alt="Capa da música">
+
+            <h3>Down with the sickness</h3>
+
+            <p>Disturbed</p>
+        </li>
+
+        <li class="card-musica">
+            <img src="imagens/capa8.jpg" alt="Capa da música">
+
+            <h3>Bodies</h3>
+
+            <p>Drowning Pool</p>
+        </li>
+
+        <li class="card-musica">
+            <img src="imagens/capa9.avif" alt="Capa da música">
+
+            <h3>Given up</h3>
+
+            <p>Linkin Park</p>
+        </li>
+    </ul>
+</div>
+    </main>
+
+</div>
+<script> <!--Puxa o menu lateral-->
+     fetch("menu.html")
+        .then(resposta => resposta.text())
+        .then(html => {
+            document.getElementById("menu-lateral").innerHTML = html;
+        });
+</script>
+</body>
+</html>
