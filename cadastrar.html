@@ -16,22 +16,22 @@
                     <div class="coluna">  
                         <label>
                             Nome:
-                            <input type="text" name="nome" id="email" placeholder="nome:" required> 
+                            <input type="text" name="nome" id="nome" placeholder="nome:" required>
                         </label>
                     
                         <label>
                             Email:
-                            <input type="text" name="email" id="email" placeholder="E-mail:" required>
+                            <input type="email" name="email" id="email" placeholder="E-mail:" required>
                         </label>
 
                         <label>
                             CPF:
-                            <input type="text" name="CPF" id="CPF" placeholder="CPF:" required>
+                            <input type="text" name="cpf" id="cpf" placeholder="CPF:" required>
                         </label>
 
                         <label>
                             N° Telefone:
-                            <input type="telefone" name="telefone" id="telefone" placeholder="N° Telefone" required>
+                            <input type="tel" name="telefone" id="telefone" placeholder="N° Telefone" required>
                         </label>
                     </div>
 
@@ -47,17 +47,51 @@
                         </label>  
                     </div>
                 </form>
-                <button class="submit" type="submit" form="formCadastro">Criar conta</a>        
+                <button class="submit" type="submit" form="formCadastro">Criar conta</button>
         </div>
     </div>
     <footer id="rodape"></footer>
 
     <script> <!--Salvar cadastro-->
-        const botao = document.getElementById("btnSalvar");
         const formulario = document.getElementById("formCadastro");
 
-        botao.addEventListener("click", () => {
-            formulario.requestSubmit();
+        formulario.addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const senha = document.getElementById("senha").value;
+            const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+            if (senha !== confirmarSenha) {
+                alert("As senhas não coincidem.");
+                return;
+            }
+
+            const dados = {
+                nome: document.getElementById("nome").value,
+                email: document.getElementById("email").value,
+                cpf: document.getElementById("cpf").value,
+                telefone: document.getElementById("telefone").value,
+                senha,
+            };
+
+            try {
+                const resposta = await fetch("/cadastro", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(dados),
+                });
+                const resultado = await resposta.json();
+
+                alert(resultado.mensagem);
+
+                if (resposta.status === 201) {
+                    window.location.href = "login.html";
+                }
+            } catch (error) {
+                alert("Não foi possível conectar ao servidor.");
+            }
         });
     </script>
 </body>

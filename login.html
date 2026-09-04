@@ -13,35 +13,50 @@
             <h2>Faça login</h2>   
             <hr>
             <div class="conteudo"> 
-                <form action="/login" method="post" id="formLogin">
+                <form id="formLogin">
                     <label>Email:</label>
-                    <input type="text" name="email" id="email" placeholder="E-mail:" required>
+                    <input type="email" name="email" id="email" placeholder="E-mail:" required>
                     <label>Senha:</label>
                     <input type="password" name="senha" id="senha" placeholder="Senha:" required>
                 </form>
                 <br>
                     <a class="link" href="cadastrar.html"> Cadastre-se</a>
                     <a class="link" href="redefinirSenha.html"> Esqueci a senha</a>
-                    <a class="link" href="home.html">Dev Pass</a>    
             </div>
             <button class="submit" type="submit" form="formLogin">Entrar</button>
         </div>
     </div>
     <footer id="rodape"></footer>
     <script> <!--Validação de Login-->
-        const resposta = await fetch("/login", {
-        method: "POST",
-        headers:{
-            "Content-Type":"application/json"
-        },
-        body: JSON.stringify(dados)
-        });
+        const formulario = document.getElementById("formLogin");
 
-        if(resposta.ok){
-            window.location.href = "home.html";
-        }else{
-            alert("E-mail ou senha inválidos.");
-        }
+        formulario.addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const dados = {
+                email: document.getElementById("email").value,
+                senha: document.getElementById("senha").value,
+            };
+
+            try {
+                const resposta = await fetch("/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(dados),
+                });
+                const resultado = await resposta.json();
+
+                alert(resultado.mensagem);
+
+                if (resposta.status === 200) {
+                    window.location.href = "home.html";
+                }
+            } catch (error) {
+                alert("Não foi possível conectar ao servidor.");
+            }
+        });
     </script>
 </body>
 </html>
